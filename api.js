@@ -15,12 +15,16 @@ environment = {
     DBMONGOUSER: process.env.DBMONGOUSER,
     DBMONGOPASS: process.env.DBMONGOPASS,
     DBMONGOSERV: process.env.DBMONGOSERV,
-    //DBMONGO: process.env.DBMONGO,
+    DBMONGO: process.env.DBMONGO,
 };
+console.log("VARIABLES EN RENDER →", environment);
 
-//var query = 'mongodb+srv://' + environment.DBMONGOUSER + ':' + environment.DBMONGOPASS + '@' + environment.DBMONGOSERV + '/' + environment.DBMONGO + '?retryWrites=true&w=majority';
-
-var query = 'mongodb+srv://' + environment.DBMONGOUSER + ':' + environment.DBMONGOPASS + '@' + environment.DBMONGOSERV + '/'  + '?retryWrites=true&w=majority';
+var query = 'mongodb+srv://'
+    + environment.DBMONGOUSER + ':'
+    + environment.DBMONGOPASS + '@'
+    + environment.DBMONGOSERV + '/'
+    + environment.DBMONGO
+    + '?retryWrites=true&w=majority';
 
 const db = (query)
 
@@ -28,10 +32,10 @@ mongoose.Promise = global.Promise;
 
 mongoose.connect(db).then(() => {
     console.log('Conexión a la base de datos exitosa');
+    console.log("Base de datos conectada:", mongoose.connection.name);
 }).catch((err) => {
     console.error('Error al conectar a la base de datos', err);
 });
-
 
 router.post('/create-task', function (req, res) {
     let task_id = req.body.TaskId;
