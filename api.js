@@ -15,10 +15,12 @@ environment = {
     DBMONGOUSER: process.env.DBMONGOUSER,
     DBMONGOPASS: process.env.DBMONGOPASS,
     DBMONGOSERV: process.env.DBMONGOSERV,
-    DBMONGO: process.env.DBMONGO,
+    //DBMONGO: process.env.DBMONGO,
 };
 
-var query = 'mongodb+srv://' + environment.DBMONGOUSER + ':' + environment.DBMONGOPASS + '@' + environment.DBMONGOSERV + '/' + environment.DBMONGO + '?retryWrites=true&w=majority';
+//var query = 'mongodb+srv://' + environment.DBMONGOUSER + ':' + environment.DBMONGOPASS + '@' + environment.DBMONGOSERV + '/' + environment.DBMONGO + '?retryWrites=true&w=majority';
+
+var query = 'mongodb+srv://' + environment.DBMONGOUSER + ':' + environment.DBMONGOPASS + '@' + environment.DBMONGOSERV + '/'  + '?retryWrites=true&w=majority';
 
 const db = (query)
 
